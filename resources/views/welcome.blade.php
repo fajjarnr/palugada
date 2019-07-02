@@ -40,7 +40,7 @@
                 </p>
 
                 <p class="lead">
-                    <a href="{{ route('login') }}" class="btn btn-lg btn-success">Selengkapnya</a>
+                    <a href="{{ route('login') }}" class="btn btn-lg btn-info">Selengkapnya</a>
                 </p>
 
             </main>
