@@ -2,40 +2,138 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Category;
 
 class CategoryController extends Controller
 {
-    public function TambahKategori(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->all();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = Category::get();
+        return view('admin.category', compact('data'));
+    }
 
-            $category = new Category;
-            $category->nama = $data['nama'];
-            $category->deskripsi = $data['deskripsi'];
-            $category->url = $data['url'];
-            $category->save();
-            return redirect(route('data-kategori'));
-        }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('admin.addcategory');
     }
 
-    public function editKategori(Request $request , $id = null){
-        if($request->isMethod('post')){
-            $data = $request->all;
-            Category::where(['id'=>$id])->update(['nama'=>$data['nama'], 'deskripsi'=>$data['deskripsi'], 'url'=>$data['url']]);
-            return redirect(route('data-kategori'));
-        }
-        $categoryDetails = Category::where(['id'=>$id])->first();
-        return view('admin.editcategory')->with(compact('categoryDetails'));
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'nama_kategori' => 'required',
+            'deskripsi' => 'required',
+            'url' => 'required',
+        	'image' => 'required|image|max:5000'
+        ]);
+
+        $image = $request->file('image');
+
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('data_file'), $new_name);
+        $from_data = array(
+            'nama_kategori' => $request->nama_kategori,
+            'deskripsi' => $request->deskripsi,
+            'url'           => $request->url,
+            'image'         => $new_name
+        );
+
+        Category::create($from_data);
+
+        return redirect('admin/category')->with('success', 'Data berhasil di tambahkan');
     }
 
-    public function ViewCategory(){
-        $categories = Category::get();
-        $categories = json_decode(json_encode($categories));
-        return view('admin.viewcategory')->with(compact('categories')) ;
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $data = Category::findorFail($id);
+        return view('admin.editcategory', compact('data'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+         $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'nama_kategori' => 'required',
+                'deskripsi' => 'required',
+                'url' => 'required',
+                'image' => 'required|image|max:5000'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_kategori' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_kategori' => $request->nama_kategori,
+            'deskripsi'     => $request->deskripsi,
+            'url'           => $request->url,
+            'image'         => $image_name
+        );
+
+        Category::whereId($id)->update($from_data);
+
+        return redirect('admin/category')->with('success', 'Data Berhasil di ubah');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $data = Category::findOrFail($id);
+        $data->delete();
+        return redirect()->back()->with('success', 'Data berhasil di hapus');
     }
 }

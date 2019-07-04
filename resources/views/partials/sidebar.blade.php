@@ -16,7 +16,7 @@
               </div>
               <div class="info">
                   <a href="" class="d-block">
-                    Administrator
+                      Administrator
                   </a>
               </div>
           </div>
@@ -33,47 +33,71 @@
                           <p>Dashboard</p>
                       </a>
                   </li>
-                  <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
-                      <i class="nav-icon fa fa-book"></i>
-                      <p>
-                        Kategori
-                        <i class="right fa fa-angle-left"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                      <a href="{{route('tambah-kategori')}}" class="nav-link">
-                          <i class="fa fa-circle-o nav-icon"></i>
-                          <p>Tambah Kategori</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                      <a href="{{route('data-kategori')}}" class="nav-link">
-                          <i class="fa fa-circle-o nav-icon"></i>
-                          <p>Data Kategori</p>
-                        </a>
-                      </li>
-                    </ul>
+                  <li class="nav-item">
+                      <a href="{{route('kategori')}}" class="nav-link">
+                          <i class="nav-icon fa fa-book></i>"></i>
+                          <p>Kategori</p>
+                      </a>
                   </li>
-              <li class="nav-item">
-                  <a href="{{route('service')}}" class="nav-link">
-                      <i class="nav-icon fab fa-usps></i>"></i>
-                      <p>Service</p>
-                  </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('payment')}}" class="nav-link">
-                    <i class="nav-icon fa fa-dollar"></i>
-                    <p>Riwayat Pembayaran</p>
-                </a>
-            </li>
-              <li class="nav-item">
-                  <a href="{{route('data-user')}}" class="nav-link">
-                      <i class="nav-icon fa fa-user"></i>
-                      <p>Data User</p>
-                  </a>
-              </li>
+                  <li class="nav-item has-treeview menu-open">
+                      <a href="#" class="nav-link active">
+                          <i class="nav-icon "></i>
+                          <p>
+                              Service
+                              <i class="right fa fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{route('entertaiment')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Entertaiment</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{route('homecleaner')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Home Cleaner</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{route('laundry')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Laundry</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{route('lesprivate')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Les Private</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{route('massage')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Massage</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{route('selfbeauty')}}" class="nav-link">
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                                  <p>Self Beauty</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{route('payment')}}" class="nav-link">
+                          <i class="nav-icon fa fa-dollar"></i>
+                          <p>Riwayat Pembayaran</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{route('data.user')}}" class="nav-link">
+                          <i class="nav-icon fa fa-user"></i>
+                          <p>Data User</p>
+                      </a>
+                  </li>
           </nav>
           <!-- /.sidebar-menu -->
       </div>

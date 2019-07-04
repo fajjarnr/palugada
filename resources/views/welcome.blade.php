@@ -24,10 +24,10 @@
                 <div class="inner">
                     <h3 class="masthead-brand">PALUGADA</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                         <a class="nav-link" href="{{ url('/about-us') }}">About</a>
                         <a class="nav-link" href="{{ url('/contact-us') }}">Contact</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </nav>
                 </div>
             </header>

@@ -1,128 +1,60 @@
-<!-- Footer -->
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+<!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
+                <div class="col-lg-4 col-md-6 footer-info">
+                    <h3>PALUGADA</h3>
+                    <h5>"Apa Lu Mau Gua Ada"</h5>
+                    <p>Didukung dengan teknologi terkini, kami memberikan pelayanan jasa terbaik dengan harga
+                        terjangkau.</p>
+                </div>
 
-      <!-- Grid row -->
-      <div class="row">
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="{{url('/')}}">Home</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="{{url('/about-us')}}">About us</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="{{url('/contact-us')}}">Contact us</a></li>
+                    </ul>
+                </div>
 
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+                <div class="col-lg-4 col-md-6 footer-contact">
+                    <h4>Alamat Kami</h4>
+                    <p>
+                        Gama Tower <br>
+                        Jl. H. R. Rasuna Said No.Kav. C-22, RT.2/RW.5<br>
+                        Kuningan, Jakarta Selatan 12940<br>
+                        Indonesia<br>
+                        <strong>Phone:</strong> +62 2257 3535<br>
+                        <strong>Email:</strong> palugada@info.com<br>
+                    </p>
 
-          <!-- Content -->
-          <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
-          <p>Here you can use rows and columns to organize your footer content.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
-            esse
-            quasi, veritatis totam voluptas nostrum.</p>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
 
+                </div>
+
+            </div>
         </div>
-        <!-- Grid column -->
+    </div>
 
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <p>
-                <a href="#!">PROJECTS</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                <a href="#!">ABOUT US</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                <a href="#!">BLOG</a>
-              </p>
-            </li>
-            <li>
-              <p>
-                <a href="#!">AWARDS</a>
-              </p>
-            </li>
-          </ul>
-
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>PALUGADA</strong>. All Rights Reserved
         </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-          <!-- Contact details -->
-          <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <p>
-                <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            </li>
-            <li>
-              <p>
-                <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-            </li>
-            <li>
-              <p>
-                <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            </li>
-            <li>
-              <p>
-                <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-            </li>
-          </ul>
-
-        </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-          <!-- Social buttons -->
-          <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-
-          <!-- Facebook -->
-          <a type="button" class="btn-floating btn-fb">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <!-- Twitter -->
-          <a type="button" class="btn-floating btn-tw">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <!-- Google +-->
-          <a type="button" class="btn-floating btn-gplus">
-            <i class="fab fa-google-plus-g"></i>
-          </a>
-          <!-- Dribbble -->
-          <a type="button" class="btn-floating btn-dribbble">
-            <i class="fab fa-dribbble"></i>
-          </a>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
 
     </div>
-    <!-- Footer Links -->
+</footer><!-- #footer -->
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- Uncomment below i you want to use a preloader -->
+<!-- <div id="preloader"></div> -->

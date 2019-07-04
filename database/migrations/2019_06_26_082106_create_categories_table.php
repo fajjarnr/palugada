@@ -15,12 +15,10 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_Kategori');
-            $table->string('nama');
-            $table->text('deskripsi');
+            $table->string('nama_kategori');
+            $table->string('deskripsi');
             $table->string('url');
-            $table->tinyInteger('status');
-            $table->rememberToken();
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -1,38 +1,63 @@
 @extends('layouts.master')
 
 @section('title')
-Edit Kategori
+eDIT Kategori
 @endsection
 
 @section('content')
 <div class="container">
+
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Edit Kategori</h3>
+            <h3 class="card-title">endsection Kategori</h3>
         </div>
         <!-- /.card-header -->
-        <!-- form start -->
-    <form role="form" method="POST" action="{{route('edit-kategori')}}" name="edit_category" id="edit_category">
-        {{ csrf_field() }}
-        <div class="card-body">
-                <div class="form-group">
-                    <label for="kategori">Nama Kategori</label>
-                    <input type="text" class="form-control" name="nama" id="kategori" placeholder="Nama kategroi" value="{{ $categoryDetails->nama}}">
-                </div>
-                <div class="form-group">
-                    <label for="deskripsi">Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="deskripsi" value="{{ $categoryDetails->deskripsi}}">
-                </div>
-                <div class="form-group">
-                    <label for="url">URL</label>
-                    <input type="text-area" class="form-control" name="url" id="url" placeholder="url" {{ $categoryDetails->url}}>
-                </div>
-            </div>
-            <!-- /.card-body -->
 
-            <div class="card-footer">
-                <input type="submit" value="Edit Kategori" class="btn btn-primary">
-            </div>
+        <!-- form start -->
+        <form role="form" method="POST" action="{{route('update.category', $data->id)}}" enctype="multipart/form-data"
+            name="add_category" id="add_category">
+            @csrf
+            @method('PATCH')
+            <div class="card-body">
+                <div class="container">
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                        {{ $error }} <br />
+                        @endforeach
+                    </div>
+                    @endif
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Namakategori">Nama Kategori</label>
+                        <input type="text" class="form-control" name="nama_kategori" id="Namakategori" value="{{ $data->nama_kategori }}"
+                            placeholder="Nama kategroi">
+                    </div>
+                    <div class="form-group">
+                        <label for="desc">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" id="desc"
+                            placeholder="Masukan Deskripsi" value="{{ $data->deskripsi }}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="url">URL</label>
+                        <input type="text" class="form-control" name="url" id="url" placeholder="url" value="{{ $data->url }}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Pilih Image</label>
+                        <div clas s="col-md-8">
+                            <input type="file" name="image" id="image">
+                            <img src="{{ url('/data_file/'.$data->image) }}" width="100">
+                            <input type="hidden" name="hidden_image" value="{{ $data->image }}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <input type="submit" value="Update" class="btn btn-primary">
+                </div>
         </form>
     </div>
 </div>
