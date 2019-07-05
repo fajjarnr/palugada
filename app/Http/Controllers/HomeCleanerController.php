@@ -70,7 +70,7 @@ class HomeCleanerController extends Controller
 
         HomeCleaner::create($from_data);
 
-        return redirect('admin/home-cleaner')->with('success', 'Data berhasil di tambahkan');
+        return redirect()->route('homecleaner')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
@@ -92,7 +92,8 @@ class HomeCleanerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $homecleaner = HomeCleaner::findOrFail($id);
+        return view('admin.service.edithomecleaner', compact('homecleaner'));
     }
 
     /**
@@ -104,7 +105,43 @@ class HomeCleanerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'image' => 'required|image|max:5000',
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'alamat' => 'required',
+                'notlp' => 'required',
+                'email' => 'required'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_jasa' => $request->nama_jasa,
+            'deskripsi' => $request->deskripsi,
+            'slogan'    => $request->slogan,
+            'harga'     => $request->harga,
+            'alamat'    => $request->alamat,
+            'notlp'     => $request->notlp,
+            'email'     => $request->email,
+            'image'     => $image_name
+        );
+
+        HomeCleaner::whereId($id)->update($from_data);
+
+        return redirect()->route('homecleaner')->with('success', 'Data Berhasil di ubah');
     }
 
     /**
@@ -115,6 +152,8 @@ class HomeCleanerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $homecleaner = HomeCleaner::findOrFail($id);
+        $homecleaner->delete();
+        return redirect()->back()->with('success, Data berhasil dihapus');
     }
 }

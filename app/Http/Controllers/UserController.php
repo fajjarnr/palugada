@@ -4,25 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserController extends Controller
 {
-    public function pengguna()
+    public function index()
     {
-    	// mengambil data dari table user
-    	$users = DB::table('users')->get();
-
-    	// mengirim data user ke view user
-    	return view('admin.users', ['users' => $users]);
-
+        $user = User::get();
+        return view('admin.users', compact('user'));
     }
 
-    public function hapus($id)
+    public function destroy($id)
     {
-        // menghapus data user berdasarkan id yang dipilih
-        DB::table('users')->where('id',$id)->delete();
-
-        // alihkan halaman ke halaman pegawai
-        return redirect('admin/dashboard/data-user');
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'Data berhasil di hapus');
     }
 }

@@ -69,7 +69,7 @@ class MassageController extends Controller
 
         Massage::create($from_data);
 
-        return redirect('admin/massage')->with('success', 'Data berhasil di tambahkan');
+        return redirect()->route('massage')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
@@ -91,7 +91,8 @@ class MassageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $massage = Massage::findOrFail($id);
+        return view('admin.service.editmassage', compact('massage'));
     }
 
     /**
@@ -103,7 +104,43 @@ class MassageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'image' => 'required|image|max:5000',
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'alamat' => 'required',
+                'notlp' => 'required',
+                'email' => 'required'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_jasa' => $request->nama_jasa,
+            'deskripsi' => $request->deskripsi,
+            'slogan'    => $request->slogan,
+            'harga'     => $request->harga,
+            'alamat'    => $request->alamat,
+            'notlp'     => $request->notlp,
+            'email'     => $request->email,
+            'image'     => $image_name
+        );
+
+        Massage::whereId($id)->update($from_data);
+
+        return redirect()->route('massage')->with('success', 'Data Berhasil di ubah');
     }
 
     /**
@@ -114,6 +151,8 @@ class MassageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $massage = Massage::findOrFail($id);
+        $massage->delete();
+        return redirect()->back()->with('success, Data berhasil dihapus');
     }
 }

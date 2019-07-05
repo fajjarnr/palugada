@@ -335,10 +335,11 @@
     <h1>Kategori</h1>
     <p>Kami memberikan pelayanan dengan sepenuh hati untuk menjaga kualitas dan kepercayaan pengguna Palugada.</p>
 </div>
+
 @foreach ($data as $d)
 <div class="container">
     <div class="content">
-        <a href="{{ $d->url }}" target="_blank">
+        <a href="{{ $d->url }}">
             <div class="content-overlay"></div>
             <img class="content-image" src="{{ url('/data_file/'.$d->image) }}">
             <div class="content-details fadeIn-top">

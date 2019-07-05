@@ -24,14 +24,14 @@ Data Pengguna
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $u)
+                        @foreach ($user as $u)
                         <tr>
                             <td>{{ $u->id }}</th>
                             <td>{{ $u->name }}</th>
                             <td>{{ $u->email }}</th>
                             <td>{{ $u->password }}</td>
                             <td>
-                                <a href="/data-pengguna/hapus/{{ $u->id }}">
+                                <a href="{{route('delete.user', $u->id) }}">
                                     <button class="btn btn-danger">Hapus</button>
                                 </a>
                             </td>

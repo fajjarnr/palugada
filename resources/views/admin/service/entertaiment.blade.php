@@ -46,10 +46,10 @@ Entertaiment
                     <td>{{ $e->notlp }}</td>
                     <td>{{ $e->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.entertaiment', $e->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.entertaiment', $e->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

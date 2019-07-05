@@ -46,10 +46,10 @@ Massage
                     <td>{{ $m->notlp }}</td>
                     <td>{{ $m->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.massage', $m->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.massage', $m->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

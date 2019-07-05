@@ -46,10 +46,10 @@ Les Private
                     <td>{{ $lp->notlp }}</td>
                     <td>{{ $lp->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.lesprivate', $lp->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.lesprivate', $lp->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

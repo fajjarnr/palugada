@@ -46,10 +46,10 @@ Home Cleaner
                     <td>{{ $h->notlp }}</td>
                     <td>{{ $h->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.homecleaner', $h->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.homecleaner', $h->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

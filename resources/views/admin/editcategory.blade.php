@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-eDIT Kategori
+Edit Kategori
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@ eDIT Kategori
 
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">endsection Kategori</h3>
+            <h3 class="card-title">Edit Kategori</h3>
         </div>
         <!-- /.card-header -->
 
@@ -36,8 +36,8 @@ eDIT Kategori
                     </div>
                     <div class="form-group">
                         <label for="desc">Deskripsi</label>
-                        <textarea class="form-control" name="deskripsi" id="desc"
-                            placeholder="Masukan Deskripsi" value="{{ $data->deskripsi }}"></textarea>
+                        <textarea class="form-control" name="deskripsi" id="desc" value="{{ $data->deskripsi }}"
+                            placeholder="Masukan Deskripsi"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="url">URL</label>

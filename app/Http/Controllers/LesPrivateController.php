@@ -69,7 +69,7 @@ class LesPrivateController extends Controller
 
         LesPrivate::create($from_data);
 
-        return redirect('admin/les-private')->with('success', 'Data berhasil di tambahkan');
+        return redirect()->route('lesprivate')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
@@ -91,7 +91,8 @@ class LesPrivateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lesprivate = LesPrivate::findOrFail($id);
+        return view('admin.service.editlesprivate', compact('lesprivate'));
     }
 
     /**
@@ -103,7 +104,43 @@ class LesPrivateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'image' => 'required|image|max:5000',
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'alamat' => 'required',
+                'notlp' => 'required',
+                'email' => 'required'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_jasa' => $request->nama_jasa,
+            'deskripsi' => $request->deskripsi,
+            'slogan'    => $request->slogan,
+            'harga'     => $request->harga,
+            'alamat'    => $request->alamat,
+            'notlp'     => $request->notlp,
+            'email'     => $request->email,
+            'image'     => $image_name
+        );
+
+        LesPrivate::whereId($id)->update($from_data);
+
+        return redirect()->route('lesprivate')->with('success', 'Data Berhasil di ubah');
     }
 
     /**
@@ -114,6 +151,8 @@ class LesPrivateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lesprivate = LesPrivate::findOrFail($id);
+        $lesprivate->delete();
+        return redirect()->back()->with('success, Data berhasil dihapus');
     }
 }

@@ -46,10 +46,10 @@ Laundry
                     <td>{{ $l->notlp }}</td>
                     <td>{{ $l->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.laundry', $l->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.laundry', $l->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

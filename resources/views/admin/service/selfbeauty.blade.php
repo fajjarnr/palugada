@@ -46,10 +46,10 @@ Self Beauty
                     <td>{{ $s->notlp }}</td>
                     <td>{{ $s->email }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{route('edit.selfbeauty', $s->id)}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <a href="">
+                        <a href="{{route('delete.selfbeauty', $s->id)}}">
                             <button class="btn btn-danger">Hapus</button>
                         </a>
                     </td>

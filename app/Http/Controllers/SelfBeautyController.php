@@ -69,7 +69,7 @@ class SelfBeautyController extends Controller
 
         SelfBeauty::create($from_data);
 
-        return redirect('admin/self-beauty')->with('success', 'Data berhasil di tambahkan');
+        return redirect()->route('selfbeauty')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
@@ -91,7 +91,8 @@ class SelfBeautyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $selfbeauty = SelfBeauty::findOrFail($id);
+        return view('admin.service.editselfbeauty', compact('selfbeauty'));
     }
 
     /**
@@ -103,7 +104,43 @@ class SelfBeautyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'image' => 'required|image|max:5000',
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'alamat' => 'required',
+                'notlp' => 'required',
+                'email' => 'required'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_jasa' => $request->nama_jasa,
+            'deskripsi' => $request->deskripsi,
+            'slogan'    => $request->slogan,
+            'harga'     => $request->harga,
+            'alamat'    => $request->alamat,
+            'notlp'     => $request->notlp,
+            'email'     => $request->email,
+            'image'     => $image_name
+        );
+
+        SelfBeauty::whereId($id)->update($from_data);
+
+        return redirect()->route('selfbeauty')->with('success', 'Data Berhasil di ubah');
     }
 
     /**
@@ -114,6 +151,8 @@ class SelfBeautyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $selfbeauty = SelfBeauty::findOrFail($id);
+        $selfbeauty->delete();
+        return redirect()->back()->with('success, Data berhasil dihapus');
     }
 }

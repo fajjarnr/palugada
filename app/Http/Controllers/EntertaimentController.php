@@ -70,7 +70,7 @@ class EntertaimentController extends Controller
 
         Entertaiment::create($from_data);
 
-        return redirect('admin/entertaiment')->with('success', 'Data berhasil di tambahkan');
+        return redirect()->route('entertaiment')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
@@ -92,7 +92,8 @@ class EntertaimentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entertaiment = Entertaiment::findOrFail($id);
+        return view('admin.service.editentertaiment', compact('entertaiment'));
     }
 
     /**
@@ -104,7 +105,43 @@ class EntertaimentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $image_name = $request->hidden_image;
+         $image = $request->file('image');
+         if($image != '')
+         {
+            $this->validate($request, [
+                'image' => 'required|image|max:5000',
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'alamat' => 'required',
+                'notlp' => 'required',
+                'email' => 'required'
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('data_file'), $image_name);
+         }else{
+            $this->validate($request, [
+                'nama_jasa' => 'required',
+                'deskripsi' => 'required',
+            ]);
+         }
+
+         $from_data = array(
+            'nama_jasa' => $request->nama_jasa,
+            'deskripsi' => $request->deskripsi,
+            'slogan'    => $request->slogan,
+            'harga'     => $request->harga,
+            'alamat'    => $request->alamat,
+            'notlp'     => $request->notlp,
+            'email'     => $request->email,
+            'image'     => $image_name
+        );
+
+        Entertaiment::whereId($id)->update($from_data);
+
+        return redirect()->route('entertaiment')->with('success', 'Data Berhasil di ubah');
     }
 
     /**
@@ -115,6 +152,8 @@ class EntertaimentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entertaiment = Entertaiment::findOrFail($id);
+        $entertaiment->delete();
+        return redirect()->back()->with('success, Data berhasil dihapus');
     }
 }
