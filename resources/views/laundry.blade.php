@@ -20,12 +20,13 @@ Laundry
                         <div class="col-md-8">
                         <h4><b>{{ $l->nama_jasa}}</b></h4>
                             <p class="card-text">{{ $l->slogan }}</p>
+                            <h5>Deskripsi :</h5>
                             <p class="card-text">{{ $l->deskripsi}}</p>
-                            <p>{{ $l->alamat}}</p>
-                            <p>{{ $l->notlp}}</p>
-                            <p>{{ $l->email}}</p>
+                            <p><b>Alamat :</b>{{ $l->alamat}}</p>
+                            <p><b>No Tlp/Hp : </b>{{ $l->notlp}}</p>
+                            <p><b>Email : </b>{{ $l->email}}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p>Harga Rp.{{ $l->harga }}</p>
+                                <p><b>Harga : </b>Rp.{{ $l->harga }}</p>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success">Book</button>
                                 </div>

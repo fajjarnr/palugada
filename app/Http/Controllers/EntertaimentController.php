@@ -47,10 +47,8 @@ class EntertaimentController extends Controller
             'image' => 'required|image|max:5000',
             'nama_jasa' => 'required',
             'deskripsi' => 'required',
-            'harga' => 'required',
             'alamat' => 'required',
             'notlp' => 'required',
-            'email' => 'required'
         ]);
 
         $image = $request->file('image');
@@ -113,10 +111,8 @@ class EntertaimentController extends Controller
                 'image' => 'required|image|max:5000',
                 'nama_jasa' => 'required',
                 'deskripsi' => 'required',
-                'harga' => 'required',
                 'alamat' => 'required',
                 'notlp' => 'required',
-                'email' => 'required'
             ]);
 
             $image_name = rand() . '.' . $image->getClientOriginalExtension();

@@ -40,6 +40,7 @@ Route::group(['prefix' => '/category'], function () {
     Route::get('/selfbeauty', 'SelfBeautyController@userselfbeauty')->name('user.selfbeauty');
 });
 
+
 Route::group(['prefix' => '/admin'], function (){
 
     Route::get('/login','Auth\AdminLoginController@showLoginForm');

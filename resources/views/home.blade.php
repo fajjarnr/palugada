@@ -333,7 +333,7 @@
 
 <div class="center text-center">
     <h1>Kategori</h1>
-    <p>Kami memberikan pelayanan dengan sepenuh hati untuk menjaga kualitas dan kepercayaan pengguna Palugada.</p>
+    <p class="center text-center">Kami memberikan pelayanan dengan sepenuh hati untuk menjaga kualitas dan kepercayaan pengguna Palugada.</p>
 </div>
 
 @foreach ($data as $d)

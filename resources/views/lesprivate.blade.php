@@ -20,12 +20,13 @@ Les Private
                         <div class="col-md-8">
                         <h4><b>{{ $lp->nama_jasa}}</b></h4>
                             <p class="card-text">{{ $lp->slogan }}</p>
+                            <h5>Deskripsi :</h5>
                             <p class="card-text">{{ $lp->deskripsi}}</p>
-                            <p>{{ $lp->alamat}}</p>
-                            <p>{{ $lp->notlp}}</p>
-                            <p>{{ $lp->email}}</p>
+                            <p><b>Alamat :</b>{{ $lp->alamat}}</p>
+                            <p><b>No Tlp/Hp : </b>{{ $lp->notlp}}</p>
+                            <p><b>Email : </b>{{ $lp->email}}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p>Harga Rp.{{ $lp->harga }}</p>
+                                <p><b>Harga : </b>Harga Rp.{{ $lp->harga }}</p>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success">Book</button>
                                 </div>

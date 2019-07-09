@@ -20,12 +20,13 @@ Home Cleaner
                         <div class="col-md-8">
                         <h4><b>{{ $e->nama_jasa}}</b></h4>
                             <p class="card-text">{{ $e->slogan }}</p>
+                            <h5>Deskripsi :</h5>
                             <p class="card-text">{{ $e->deskripsi}}</p>
-                            <p>{{ $e->alamat}}</p>
-                            <p>{{ $e->notlp}}</p>
-                            <p>{{ $e->email}}</p>
+                            <p><b>Alamat :</b>{{ $e->alamat}}</p>
+                            <p><b>No Tlp/Hp : </b>{{ $e->notlp}}</p>
+                            <p><b>Email : </b>{{ $e->email}}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p>Harga Rp.{{ $e->harga }}</p>
+                                <p><b>Harga : </b>Rp.{{ $e->harga }}</p>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success">Book</button>
                                 </div>

@@ -6,7 +6,7 @@ Massage
 
 @section('content')
 
-@foreach ($Massage as $m)
+@foreach ($massage as $m)
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -20,12 +20,13 @@ Massage
                         <div class="col-md-8">
                         <h4><b>{{ $m->nama_jasa}}</b></h4>
                             <p class="card-text">{{ $m->slogan }}</p>
+                            <h5>Deskripsi :</h5>
                             <p class="card-text">{{ $m->deskripsi}}</p>
-                            <p>{{ $m->alamat}}</p>
-                            <p>{{ $m->notlp}}</p>
-                            <p>{{ $m->email}}</p>
+                            <p><b>Alamat :</b>{{ $m->alamat}}</p>
+                            <p><b>No Tlp/Hp : </b>{{ $m->notlp}}</p>
+                            <p><b>Email : </b>{{ $m->email}}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p>Harga Rp.{{ $m->harga }}</p>
+                                <p><b>Harga : </b>Rp.{{ $m->harga }}</p>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success">Book</button>
                                 </div>
