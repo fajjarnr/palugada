@@ -28,7 +28,7 @@ Les Private
                             <div class="d-flex justify-content-between align-items-center">
                                 <p><b>Harga : </b>Harga Rp.{{ $lp->harga }}</p>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success">Book</button>
+                                    <a href="{{ route('userPayment', $lp->id) }}"><button type="button" class="btn btn-success">Book</button></a>
                                 </div>
                             </div>
                         </div>

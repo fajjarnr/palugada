@@ -40,6 +40,7 @@ Route::group(['prefix' => '/category'], function () {
     Route::get('/selfbeauty', 'SelfBeautyController@userselfbeauty')->name('user.selfbeauty');
 });
 
+Route::get('/payment', 'PaymentController@index')->name('userPayment');
 
 Route::group(['prefix' => '/admin'], function (){
 

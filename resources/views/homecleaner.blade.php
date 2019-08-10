@@ -28,7 +28,7 @@ Home Cleaner
                             <div class="d-flex justify-content-between align-items-center">
                                 <p><b>Harga : </b>Rp.{{ $e->harga }}</p>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success">Book</button>
+                                    <a href="{{ route('userPayment', $e->id) }}"><button type="button" class="btn btn-success">Book</button></a>
                                 </div>
                             </div>
                         </div>
